@@ -1,11 +1,14 @@
 import React from 'react'
 
-const Pref = ({hok, prefs}) => {
+const Pref = ({prefs, pref_names}) => {
+  console.log(pref_names)
   return (
     <div>
+      {pref_names.map((i) => (
       <label>
-        <input type="checkbox" />{hok}, {prefs}
+        <input type="checkbox" />{i}
       </label>
+      ))}
     </div>
   )
 }
