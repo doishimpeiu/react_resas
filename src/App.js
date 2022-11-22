@@ -4,7 +4,16 @@ import Pref from "./Pref";
 import apiKey from './apiKey';
 
 function App() {
-  const [todos, setTodos] = useState([{}]);
+  const [todos, setTodos] = useState([{
+    selected: Array(47).fill(false),
+    prefectures: {},
+    series: []
+  }
+  // const _changeSelection = (x) => {
+  //   _chageSelection.bind(x);
+  // }
+]);
+
   console.log("1");
   const getData = () => {
     // 47都道府県の一覧を取得
@@ -14,16 +23,10 @@ function App() {
     })
     .then(response => response.json())
     .then(data => {
-      for(let i = 0; i < data.result.length; i++){
-        console.log(data.result[i]);
-        let name = data.result[i].prefName;
-        let code = data.result[i].prefCode;
-        setTodos((prevTodos) => {
-          return [...prevTodos, {code: code, name: name}]
-        })
-    }});
+      setTodos({ prefectures: data.result })}
+    );
   }
-  console.log("2");
+  console.log(todos.prefectures);
 
   return (
     <div>Hello world
