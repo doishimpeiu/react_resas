@@ -2,7 +2,7 @@ import React from 'react'
 
 const Pref = ({todos, getData}) => {
   console.log(getData);
-  console.log(todos);
+  console.log(todos.prefName);
   return (
     <div>
       
