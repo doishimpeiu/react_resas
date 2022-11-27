@@ -8,7 +8,7 @@ import apiKey from './apiKey';
 function App() {
   const [todos, setTodos] = useState([{
     selected: Array(47).fill(false),
-    prefectures: {},
+    prefectures: [],
     series: []
   }
   //クラスを使うからバインドする必要はない
@@ -26,10 +26,14 @@ function App() {
     })
     .then(response => response.json())
     .then(data => {
-      setTodos({ prefectures: data.result })}
-    );
+      todos({
+        prefectures: data.result.slice()
+      });
+    });
   }
-  console.log(todos.prefectures);
+  getData();
+  console.log(todos.prefectures[0]);
+  console.log("ここ");
 
   const _changeSelection = (index) => {
     const selected_copy = todos.selected.slice();
