@@ -153,6 +153,10 @@ function App() {
 console.log(pref_sample);
 console.log(pref_sample.result);
 console.log(typeof(pref_sample.result)); //object
+console.log(Array.isArray(pref_sample.result))//配列だということがわかった
+const pref_arr = pref_sample.result.slice();
+console.log(pref_arr);
+
 console.log(pref_sample.result[0]);
 console.log(pref_sample.result[0].prefName);
 
